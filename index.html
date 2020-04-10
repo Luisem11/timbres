@@ -19,52 +19,170 @@
       height: 100%;
     }
 
-    .section1 {
+
+    .center-container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section0 {
       padding-top: 50px;
+      height: 100%;
+      width: 100%;
+      background-image: url(src/Sprites/A_Portada.png);
+      background-size: contain;
+      position: absolute;
+      z-index: 1;
+    }
+
+    .section1 {
+      height: 100%;
+      width: 100%;
+      visibility: hidden;
+      background-image: url(src/Sprites/fondo_tutorial.png);
+      background-size: contain;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .section2 {
+      padding-top: 50px;
+      visibility: hidden;
       height: 100%;
       width: 100%;
       background-image: url(src/Sprites/fondo_instrumentos.png);
       background-size: cover;
+      position: absolute;
+      z-index: 2;
+    }
+
+    .align-b-l {
+      bottom: 5%;
+      right: 5%;
+      position: absolute;
+      z-index: 3;
+    }
+
+    .centered-element {
+      height: auto;
+      width: auto;
+      z-index: 4;
+      position: absolute;
+      left: 50%;
+      margin-left: -50px;
+      top: 50%;
+      margin-top: -50px;
+    }
+
+    #bar {
+      position: absolute;
+      bottom: 5%;
+      z-index: 3;
+
+    }
+
+    #seek-bar {
+      width: 350px;
+      height: 5px;
+      background-image: url(src/Sprites/barra_sonido/barra_unpress.png);
+    }
+
+    #play {
+      top: 10%;
+      left: 10%;
+    }
+
+    #stop {
+      top: 10%;
+      left: 20%;
     }
   </style>
 </head>
 
 <body>
-  <section class="section1" style="display: none">
-
-    <div class="container-fluid">
-      <audio id="violonchelo" class="audio" src="src/Audios/desde lejos Chelo.wav" preload="none" muted></audio>
-      <audio id="clarinete" class="audio" src="src/Audios/desde lejos Clarinete.wav" preload="none" muted></audio>
-      <audio id="contrabajo" class="audio" src="src/Audios/desde lejos Contrabajo.wav" preload="none" muted></audio>
-      <audio id="corno" class="audio" src="src/Audios/desde lejos Corno.wav" preload="none" muted></audio>
-      <audio id="fagot" class="audio" src="src/Audios/desde lejos Fagot.wav" preload="none" muted></audio>
-      <audio id="flauta" class="audio" src="src/Audios/desde lejos Flauta.wav" preload="none" muted></audio>
-      <audio id="guiro" class="audio" src="src/Audios/desde lejos Guira.wav" preload="none" muted></audio>
-      <audio id="marimba" class="audio" src="src/Audios/desde lejos Marimba.wav" preload="none"></audio>
-      <audio id="oboe" class="audio" src="src/Audios/desde lejos Oboe.wav" preload="none" muted></audio>
-      <audio id="piano" class="audio" src="src/Audios/desde lejos Piano.wav" preload="none" muted></audio>
-      <audio id="timbal" class="audio" src="src/Audios/desde lejos Timbales.wav" preload="none" muted></audio>
-      <audio id="trombon" class="audio" src="src/Audios/desde lejos Trombon.wav" preload="none" muted></audio>
-      <audio id="trompeta" class="audio" src="src/Audios/desde lejos Trompeta_1.wav" preload="none" muted></audio>
-      <audio id="tuba" class="audio" src="src/Audios/desde lejos Tuba_1.wav" preload="none" muted></audio>
-      <audio id="viola" class="audio" src="src/Audios/desde lejos Viola_1.wav" preload="none" muted></audio>
-      <audio id="violin" class="audio" src="src/Audios/desde lejos Violin_1.wav" preload="none" muted></audio>
-      <audio id="violin_2" class="audio" src="src/Audios/desde lejos Violin_2.wav" preload="none" muted></audio>
-
+  <section class="section0 " id="sect0">
+    <div class="d-flex justify-content-center " style="padding-top: 35%;">
+      <a class="btn " id="comenzar">
+        <img class="img-fluid" id="espanol" src="src\Espanol\Botones\boton_inicio/inicio_unpress.png"
+          onmouseover="this.src='src/Espanol/Botones/boton_inicio/inicio_press.png'"
+          onmouseout="this.src='src/Espanol/Botones/boton_inicio/inicio_unpress.png'" onclick="" alt="#"></a>
     </div>
   </section>
+  <section class="section1" id="sect1">
+    <div class="d-flex justify-content-center align-items-center h-100" id="continue">
+      <div class="card  position-absolute">
+        <div class="card-body ">
+          <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="card-img">
+            <div id="animation" class="align-item-top ">
+              <img style="width: 180px;" src="src/Animaciones/Prueba.gif" alt="#">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section2 bg-primary center-container" id="sect2">
+    <div class="container-fluid" style="display: none">
+      <audio id="violonchelo" class="audio" src="src/Audios/desde lejos Chelo.wav" preload="auto" muted></audio>
+      <audio id="clarinete" class="audio" src="src/Audios/desde lejos Clarinete.wav" preload="auto" muted></audio>
+      <audio id="contrabajo" class="audio" src="src/Audios/desde lejos Contrabajo.wav" preload="auto" muted></audio>
+      <audio id="corno" class="audio" src="src/Audios/desde lejos Corno.wav" preload="auto" muted></audio>
+      <audio id="fagot" class="audio" src="src/Audios/desde lejos Fagot.wav" preload="auto" muted></audio>
+      <audio id="flauta" class="audio" src="src/Audios/desde lejos Flauta.wav" preload="auto" muted></audio>
+      <audio id="guiro" class="audio" src="src/Audios/desde lejos Guira.wav" preload="auto" muted></audio>
+      <audio id="marimba" class="audio" src="src/Audios/desde lejos Marimba.wav" preload="auto"></audio>
+      <audio id="oboe" class="audio" src="src/Audios/desde lejos Oboe.wav" preload="auto" muted></audio>
+      <audio id="piano" class="audio" src="src/Audios/desde lejos Piano.wav" preload="auto" muted></audio>
+      <audio id="timbal" class="audio" src="src/Audios/desde lejos Timbales.wav" preload="auto" muted></audio>
+      <audio id="trombon" class="audio" src="src/Audios/desde lejos Trombon.wav" preload="auto" muted></audio>
+      <audio id="trompeta" class="audio" src="src/Audios/desde lejos Trompeta_1.wav" preload="auto" muted></audio>
+      <audio id="tuba" class="audio" src="src/Audios/desde lejos Tuba_1.wav" preload="auto" muted></audio>
+      <audio id="viola" class="audio" src="src/Audios/desde lejos Viola_1.wav" preload="auto" muted></audio>
+      <audio id="violin" class="audio" src="src/Audios/desde lejos Violin_1.wav" preload="auto" muted></audio>
+      <!-- <audio id="violin_2" class="audio" src="src/Audios/desde lejos Violin_2.wav" preload="auto" muted></audio> -->
 
-  <section class="section1 bg-primary">
-
-
-
-    <button id="play" class="btn bg-success">Play</button>
-    <button id="stop" class="btn bg-danger">Pause</button>
+    </div>
+    <a class="btn  float-md-right mr-3 position-absolute" style="right: 5%; top: 5%;" id="inicio">
+      <img class="img-fluid" id="espanol" src="src\Espanol\Botones\boton_inicio/inicio_unpress.png"
+        onmouseover="this.src='src/Espanol/Botones/boton_inicio/inicio_press.png'"
+        onmouseout="this.src='src/Espanol/Botones/boton_inicio/inicio_unpress.png'" onclick="" alt="#"></a>
+    <div class="align-b-l">
+      <a class="btn " id="select">
+        <img class="img-fluid" id="select" src="src\Sprites\select/seleccionar.png" alt="#"></a>
+      <br>
+      <a class="btn " id="deselect">
+        <img class="img-fluid" id="deselect" src="src\Sprites\select/deseleccionar_.png" alt="#"></a>
+    </div>
+    <div id="bar">
+      <div class="row align-items-center">
+        <div class="col">
+          <a class="btn " id="play_pause">
+            <img class="img-fluid" id="play_pause_img" src="src\Sprites\barra_sonido/pause_unpress.png"
+              onmouseover="onMouseOver();" onmouseout="onMouseOut();" alt="#"></a>
+        </div>
+        <div class="col ">
+          <div id="seek-bar">
+            <div id="fill"></div>
+            <div id="handle"></div>
+          </div>
+        </div>
+        <div class="col">
+          <a class="btn " id="replay">
+            <img class="img-fluid" id="replay_img" src="src\Sprites\barra_sonido/replay_unpress.png"
+              onmouseover="this.src='src/Sprites/barra_sonido/replay_press.png'"
+              onmouseout="this.src='src/Sprites/barra_sonido/replay_unpress.png'" onclick="resetSound();" alt="#"></a>
+        </div>
+      </div>
+    </div>
     <div class="container-fluid align-items-center">
       <div class="row">
         <div class="col-6">
           <div class="row">
-
             <div class="col-1">
               <img src="src\Espanol\Botones\textos_clasificacion/cuerdas.png" class="img-fluid" style="height: 400px;"
                 alt="#">
@@ -72,21 +190,21 @@
             <div class="col-5">
               <div>
                 <div class="row ">
-                  <div class="col-8 ">
+                  <div class="col-9 ">
                     <a href="#">
                       <img class="img-fluid" id="img_violin"
                         src="src\Espanol\Botones\instrumentos/violin_unpress_esp.png" alt="#">
                     </a> </div>
-                  <div class="col-8"> <a href="#">
+                  <div class="col-9"> <a href="#">
                       <img class="img-fluid" id="img_viola" src="src\Espanol\Botones\instrumentos/viola_unpress_esp.png"
                         alt="#" onclick="">
                     </a> </div>
-                  <div class="col-8">
+                  <div class="col-9">
                     <a href="#">
                       <img class="img-fluid" id="img_violonchelo"
                         src="src\Espanol\Botones\instrumentos/violonchelo_unpress_esp.png" alt="#">
                     </a> </div>
-                  <div class="col-8">
+                  <div class="col-9">
                     <a href="#">
                       <img class="img-fluid" id="img_contrabajo"
                         src="src\Espanol\Botones\instrumentos/contrabajo_unpress_esp.png" alt="#">
@@ -197,6 +315,8 @@
   </section>
 
 
+
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -209,6 +329,7 @@
   <script>
     var playBtn = document.getElementById('play');
     var stopBtn = document.getElementById('stop');
+    var isPlayed = true;
 
     var playSound = function () {
       $('.audio').each(function (index) {
@@ -216,29 +337,73 @@
       });
     };
 
+    var playAll = function () {
+      $('.audio').each(function (index) {
+        $(this)[0].muted = true;
+      });
+    };
+
+    var resetSound = function () {
+      $('.audio').each(function (index) {
+        $(this)[0].currentTime = 0;
+        $(this)[0].play();
+      });
+    };
+
+
     var pauseSound = function () {
       $('.audio').each(function (index) {
         $(this)[0].pause();
       });
     };
-    playBtn.addEventListener('click', playSound, false);
-    stopBtn.addEventListener('click', pauseSound, false);
 
-
-    var changeState = function (nombre) {
-
-      var isMuted = document.getElementById('' + nombre).muted;
-      document.getElementById('' + nombre).muted = !isMuted;
-      if (isMuted) {
-        document.getElementById('img_' + nombre).src = 'src/Espanol/Botones/instrumentos/' + nombre + '_press_esp.png'
-
-      } else {
-
-        document.getElementById('img_' + nombre).src = 'src/Espanol/Botones/instrumentos/' + nombre +
-          '_unpress_esp.png'
-      }
+    var activate = function (nombre) {
+      document.getElementById('' + nombre).muted = false;
+      document.getElementById('img_' + nombre).src = 'src/Espanol/Botones/instrumentos/' + nombre + '_press_esp.png';
 
     };
+
+    var desactivate = function (nombre) {
+      document.getElementById('' + nombre).muted = true;
+      document.getElementById('img_' + nombre).src = 'src/Espanol/Botones/instrumentos/' + nombre +
+        '_unpress_esp.png';
+    };
+
+    var changeState = function (nombre) {
+      var isMuted = document.getElementById('' + nombre).muted;
+      if (isMuted) {
+        activate(nombre);
+      } else {
+        desactivate(nombre);
+      }
+    };
+    var onMouseOver = function (nombre) {
+      if (!isPlayed) {
+        document.getElementById('play_pause_img').src = 'src/Sprites/barra_sonido/play_press.png';
+      } else {
+        document.getElementById('play_pause_img').src = 'src/Sprites/barra_sonido/pause_press.png';
+      }
+    };
+    var onMouseOut = function (nombre) {
+      if (!isPlayed) {
+        document.getElementById('play_pause_img').src = 'src/Sprites/barra_sonido/play_unpress.png';
+      } else {
+        document.getElementById('play_pause_img').src = 'src/Sprites/barra_sonido/pause_unpress.png';
+      }
+    };
+
+    document.getElementById('play_pause').addEventListener('click', function () {
+      if (isPlayed) {
+
+        document.getElementById('play_pause_img').src = 'src/Sprites/barra_sonido/play_unpress.png';
+        pauseSound();
+
+      } else {
+        document.getElementById('play_pause_img').src = 'src/Sprites/barra_sonido/pause_unpress.png';
+        playSound();
+      }
+      isPlayed = !isPlayed;
+    }, false);
 
     document.getElementById('img_violin').addEventListener('click', function () {
       changeState('violin');
@@ -287,6 +452,32 @@
     }, false);
     document.getElementById('img_tuba').addEventListener('click', function () {
       changeState('tuba');
+    }, false);
+    document.getElementById('espanol').addEventListener('click', function () {
+      document.getElementById('sect0').style.visibility = "hidden";
+      document.getElementById('sect1').style.visibility = 'visible';
+    }, false);
+    document.getElementById('continue').addEventListener('click', function () {
+      document.getElementById('sect1').style.visibility = "hidden";
+      document.getElementById('sect2').style.visibility = 'visible';
+      playSound();
+    }, false);
+
+    document.getElementById('inicio').addEventListener('click', function () {
+      document.getElementById('sect2').style.visibility = "hidden";
+      document.getElementById('sect0').style.visibility = 'visible';
+      resetSound();
+      pauseSound();
+    }, false);
+    document.getElementById('select').addEventListener('click', function () {
+      $('.audio').each(function (index) {
+        activate($(this)[0].id)
+      });
+    }, false);
+    document.getElementById('deselect').addEventListener('click', function () {
+      $('.audio').each(function (index) {
+        desactivate($(this)[0].id)
+      });
     }, false);
   </script>
 
